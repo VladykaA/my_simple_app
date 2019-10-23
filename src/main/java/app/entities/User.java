@@ -1,6 +1,14 @@
 package app.entities;
 
+import javax.persistence.*;
+
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
+    private int id;
 
     private String name;
     private String password;
@@ -37,21 +45,4 @@ public class User {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (!name.equals(user.name)) return false;
-        return password.equals(user.password);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + password.hashCode();
-        return result;
-    }
 }
