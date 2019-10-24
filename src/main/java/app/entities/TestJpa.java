@@ -6,7 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class TestJpa {
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
 
         User user = new User("Jack", "123456");
 
@@ -25,5 +25,5 @@ public class TestJpa {
         em.close();
 
         factory.close();
-    }
+    }*/
 }

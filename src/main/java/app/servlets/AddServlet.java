@@ -2,6 +2,7 @@ package app.servlets;
 
 import app.entities.User;
 import app.model.Model;
+import app.service.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,6 +24,8 @@ public class AddServlet extends HttpServlet {
         User user = new User(name, password);
         Model model = Model.getInstance();
         model.add(user);
+
+        new UserService().save(user);
 
         req.setAttribute("userName", name);
         doGet(req, resp);
