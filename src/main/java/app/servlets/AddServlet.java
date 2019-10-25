@@ -2,6 +2,8 @@ package app.servlets;
 
 import app.entities.User;
 import app.model.Model;
+import app.service.CRUDService;
+import app.service.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AddServlet extends HttpServlet {
+
+    private CRUDService<User> crudService;
+
+    public AddServlet() {
+        crudService = new UserService();
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/add.jsp");
@@ -21,8 +30,10 @@ public class AddServlet extends HttpServlet {
         String name = req.getParameter("name");
         String password = req.getParameter("pass");
         User user = new User(name, password);
-        Model model = Model.getInstance();
-        model.add(user);
+//        Model model = Model.getInstance();
+//        model.add(user);
+
+       crudService.save(user);
 
         req.setAttribute("userName", name);
         doGet(req, resp);
