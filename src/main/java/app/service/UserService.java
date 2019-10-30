@@ -1,11 +1,8 @@
 package app.service;
 
 import app.entities.User;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
 public class UserService implements CRUDService<User> {
 
@@ -51,7 +48,7 @@ public class UserService implements CRUDService<User> {
 
         transaction.begin();
 
-
+        Query query = em.createQuery("SELECT * from learn_jpa.user WHERE name ='" + name + "';", User.class);
 
 //        User u = em.find()
 //
@@ -63,13 +60,19 @@ public class UserService implements CRUDService<User> {
     }
 
     @Override
-    public void getAll() {
+    public List<User> getAll() {
         EntityManager em = FACTORY.createEntityManager();
 
         EntityTransaction transaction = em.getTransaction();
 
         transaction.begin();
 
+        Query query = em.createQuery("from User u", User.class);
 
+        transaction.commit();
+
+        em.close();
+
+        return query.getResultList();
     }
 }
