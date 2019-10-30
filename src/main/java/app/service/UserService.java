@@ -28,12 +28,48 @@ public class UserService implements CRUDService<User> {
     }
 
     @Override
-    public void update(User entity) {
+    public void update(User user) {
+//        EntityManager em = FACTORY.createEntityManager();
+//
+//        EntityTransaction transaction = em.getTransaction();
+//
+//        transaction.begin();
+//
+//        em.merge(user);
+//
+//        transaction.commit();
+//
+//        em.close();
 
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(String name, String pass) {
+        EntityManager em = FACTORY.createEntityManager();
+
+        EntityTransaction transaction = em.getTransaction();
+
+        transaction.begin();
+
+
+
+//        User u = em.find()
+//
+//        em.remove(u);
+
+        transaction.commit();
+
+        em.close();
+    }
+
+    @Override
+    public void getAll() {
+        EntityManager em = FACTORY.createEntityManager();
+
+        EntityTransaction transaction = em.getTransaction();
+
+        transaction.begin();
+
 
     }
 }

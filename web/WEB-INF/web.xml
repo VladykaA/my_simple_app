@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>add</servlet-name>
-        <servlet-class>app.servlets.AddServlet</servlet-class>
+        <servlet-class>app.servlets.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>add</servlet-name>
@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>list</servlet-name>
-        <servlet-class>app.servlets.ListServlet</servlet-class>
+        <servlet-class>app.servlets.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>list</servlet-name>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>delete</servlet-name>
-        <servlet-class>app.servlets.DeleteServlet</servlet-class>
+        <servlet-class>app.servlets.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>delete</servlet-name>
